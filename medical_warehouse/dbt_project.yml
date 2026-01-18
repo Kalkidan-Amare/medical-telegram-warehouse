@@ -1,0 +1,20 @@
+name: "medical_warehouse"
+version: "1.0.0"
+config-version: 2
+
+profile: "medical_warehouse"
+
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+models:
+  medical_warehouse:
+    staging:
+      +schema: staging
+      +materialized: view
+    marts:
+      +schema: marts
+      +materialized: table
