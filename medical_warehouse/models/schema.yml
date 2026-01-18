@@ -55,3 +55,19 @@ models:
           - relationships:
               to: ref('dim_dates')
               field: date_key
+
+  - name: fct_image_detections
+    description: Fact table combining YOLO detections with message facts.
+    columns:
+      - name: message_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('fct_messages')
+              field: message_id
+      - name: channel_key
+        tests:
+          - not_null
+      - name: date_key
+        tests:
+          - not_null
